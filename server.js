@@ -3,6 +3,7 @@ const http = require("http");
 const server = http.createServer((req, res) => {
   res.setHeader("Content-Type", "application/json");
   res.setHeader("X-Powered-By", "NodeJS");
+  const port = process.env.PORT || 4000;
   const { method, url } = req;
   if (url === "/") {
     if (method === "GET") {
@@ -47,6 +48,6 @@ const server = http.createServer((req, res) => {
   }
 });
 
-server.listen(4000, "localhost", () => {
-  console.log("server running at http://localhost:4000");
+server.listen(port, "localhost", () => {
+  console.log(`server running at http://localhost:${port}`);
 });
